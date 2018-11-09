@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <title>Attendance</title>
+  <style>
+        .dropdown-submenu {
+            position: relative;
+        }
+        
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+          
+  body
+{
+    margin: 0;
+    padding: 0;
+    background:rgb(32, 178, 154);
+}
+.box
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(50%,50%);
+    
+}
+.notifications
+{
+    width: 60px;
+    height: 60px;
+    background:white;
+    border-radius: 30px;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+}
+
+.fa {
+    position: absolute !important;
+    text-align: center !important;
+    transform: translate(-50%, 25%) !important;
+}
+
+.num {
+    position: absolute;
+}
+/*.notifications:hover
+{
+    width: 300px;
+    height: 60px;
+    text-align: left;
+    padding: 0 15px;
+    background:#ff2c74;
+    transform: translateY(-100%);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}*/
+.notifications  .fas
+{
+    color: #cecece;
+    line-height: 60px;
+    font-size: 30px;
+}
+/*.notifications:hover .fas
+{
+    color:#fff;
+
+}*/
+.notifications .num
+{
+    position: absolute;
+    top: 0;
+    right: -5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background:red;
+    color:#fff;
+    line-height: 25px;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+  </style>
+       
+    
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+    <div class="container">
+      <a href="attendance.html" class="navbar-brand"> <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/49/IIIT_Sri_City_Logo.png/220px-IIIT_Sri_City_Logo.png" style="width: 32px; height: 32px; margin-right: 8px;">Security Management System</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+       </nav>
+  <!-- HEADER -->
+  <header id="main-header" class="py-2 bg-primary text-white">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <h1>
+                <i class="fas fa-cog"></i> Security</h1>
+            </div>
+          </div>
+        </div>
+      </header>
+     <!-- SEARCH -->
+      <section id="search" class="py-4 mb-4 bg-light">
+     
+      <!-- ACTIONS -->
+      <section id="actions" class="py-4 mb-4 bg-light">
+        
+            <div class="col-md-3">
+<div class="Attendance">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                    <span class="caret"></span>Attendance</button>
+                    <ul class="dropdown-menu">
+              <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addattendanceModal">
+                <i class="fas fa"></i>
+              </a>
+              
+                      <li><a tabindex="-1" href="#">BH1</a></li>
+                      <li><a tabindex="-1" href="#">BH2</a></li>
+                      <li class="dropdown-submenu">
+                        <a class="test" tabindex="-1" href="#">GH1<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a tabindex="-1" href="#">1st Floor</a></li>
+                          <li><a tabindex="-1" href="#">2nd Floor</a></li>
+                          <li><a tabindex="-1" href="#">3rd Floor</a></li>
+                          <li><a tabindex="-1" href="#">4th Floor</a></li>
+                          <li class="dropdown-submenu">
+                            <a class="test" href="#">1st Floor <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">
+                                  <tr>
+                                      <td>1</td>
+                                      <td>2</td>
+                                      <td>3</td>
+                                  </tr>
+                              </a></li>
+                              <li><a href="#">3rd level dropdown</a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                
+                
+               
+            </div>
+            <div class="col-md-3">
+              <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#addnotifygateModal">
+                <i class="fas fa"></i> Notify gate
+              </a>
+            </div>
+            <div class="col-md-3">
+              <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#addgatepassModal">
+                <i class="fas fa"></i> Gatepass
+              </a>
+            </div>
+           <!-- <div class="col-md-3">
+              <a href="#" class="btn btn-warning btn-block" data-toggle="modal" data-target="#addUserModal">
+                <i class="fas fa-plus"></i> Add User
+              </a>
+            </div>-->
+          </div>
+        </div>
+      </section>  
+      <div class="container">
+            <div class="row">
+              <div class="col-md-6 ml-auto">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search by Name/phone number...">
+                  <div class="input-group-append">
+                    <button class="btn btn-primary">Search</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- POSTS -->
+        <section id="posts">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-9">
+                <div class="card">
+                  <div class="card-header">
+
+                        <h4>In-Out Timings</h4>
+                    </div>
+                    <table class="table table-striped">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th>#</th>
+                          <th>Place</th>
+                          
+                          <th>Date&Time</th>
+                          
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                       
+                        </tr>
+                          <td>1</td>
+                          <td>chennai</td>
+                          
+                          <td>May 10 2018 ;10:00 am</td>
+                          
+                          <td>
+                            <a href="details.html" class="btn btn-secondary">
+                              <i class="fas fa-angle-double-right"></i> Details
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>New City</td>
+                          
+                          <td>May 11 2018;6:00 pm</td>
+                         
+                          <td>
+                            <a href="details.html" class="btn btn-secondary">
+                              <i class="fas fa-angle-double-right"></i> Details
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>Tada</td>
+                         
+                          <td>May 13 2018;3:00 pm</td>
+                         
+                          <td>
+                            <a href="details.html" class="btn btn-secondary">
+                              <i class="fas fa-angle-double-right"></i> Details
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>Sullurupeta</td>
+                          
+                          <td>May 15 2018;11:00 am</td>
+                         
+                          <td>
+                            <a href="details.html" class="btn btn-secondary">
+                              <i class="fas fa-angle-double-right"></i> Details
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>Tada</td>
+                          
+                          <td>May 17 2018;5:00 pm</td>
+                         
+                          <td>
+                          <a href="details.html" class="btn btn-secondary">
+                            <i class="fas fa-angle-double-right"></i> Details
+                          </a>
+                        </td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card text-center bg-primary text-white mb-3">
+                  <div class="card-body">
+                    <h3>ADD VISITOR</h3>
+                    <h4 class="display-4">
+                      <i class="fas fa-user-plus"></i>
+                    </h4>
+                    <a href="addvisitor.html" class="btn btn-outline-light btn-sm">ADD</a>
+                  </div>
+                </div>     
+</section>
+
+
+<!-- ADD POST MODAL --
+  <div class="modal fade" id="addPostModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title">GatePass</h5>
+          <button class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+              <div class="form-group">
+                  <label for="title">NAME</label>
+                  <input type="text" class="form-control">
+                </div>
+            <div class="form-group">
+              <label for="title">FROM</label>
+              <input type="text" class="form-control">
+            </div>
+            
+            <div class="form-group">
+              <label for="image">TO</label>
+              <input type="text" class="form-control">
+              <small class="form-text text-muted">Mention time and data</small>
+            </div>
+            <div class="form-group">
+              <label for="body">PURPOSE</label>
+              <textarea name="editor1" class="form-control"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-dismiss="modal">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div-->
+
+  <!-- ADD CATEGORY MODAL --
+  <div class="modal fade" id="addmedicalModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title">Medical Service</h5>
+          <button class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="body"></label>
+              <textarea name="editor1" class="form-control"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success" data-dismiss="modal">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="addCategoryModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title">Complaint</h5>
+            <button class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="body"></label>
+                <textarea name="editor1" class="form-control"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-success" data-dismiss="modal">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div-->
+
+ <!--
+     ejfnrjnjnj-->
+<!-- ADD POST MODAL -->
+<div class="modal fade" id="addnotifygateModal">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+              <h5 class="modal-title">Notifygate</h5>
+              <button class="close" data-dismiss="modal">
+                <span>&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                        
+  <section id="posts">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <div class="card-header">
+                  <h4>Latest notifications</h4>
+                </div>
+                <table class="table table-striped">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th>#</th>
+                      <th>User</th>
+                      <th>Gate</th>
+                      <th>Visitor name</th>
+                      <th>Mobile number</th>
+                      <th>Time</th>
+                      <th>Date</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Faculty</td>
+                      <td>Faculty building</td>
+                      <td>Ramanathan</td>
+                      <td>9998765438</td>
+                      <td> 12:30 pm</td>
+                      <td>May 11 2018</td>
+                      <td>
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Student</td>
+                      <td>BH1</td>
+                      <td>Muthuswamy</td>
+                      <td>7869594930</td>
+                      <td>5:00 pm</td>
+                      <td>May 11 2018</td>
+                      <td>
+                      
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>student</td>
+                      <td>BH2</td>
+                      <td>kiran</td>
+                      <td>6789594932</td>
+                      <td>10:00 am</td>
+                      <td>May 13 2018</td>
+                      <td>
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Faculty</td>
+                      <td>Faculty building</td>
+                      <td>radhika</td>
+                      <td>9807893545</td>
+                      <td>10:00 am</td>
+                      <td>May 15 2018</td>
+                      <td>
+                       
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>student</td>
+                      <td>GH1</td>
+                      <td>raghu</td>
+                      <td>8766783452</td>
+                      <td>1:00 pm</td>
+                      <td>May 17 2018</td>
+                      <td>
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>student</td>
+                      <td>GH1</td>
+                      <td>Aswanth</td>
+                      <td>8978593728</td>
+                      <td>4:00 pm</td>
+                      <td>May 20 2018</td>
+                      <td>
+                      
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+    
+                <!-- PAGINATION -->                        
+              </div>
+            </div>
+            </section>
+              </form>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+ <!-- ADD POST MODAL -->
+ <div class="modal fade" id="addgatepassModal">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+              <h5 class="modal-title">GatePass</h5>
+              <button class="close" data-dismiss="modal">
+                <span>&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                  
+  <section id="posts">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <div class="card-header">
+                  <h4>Latest issues</h4>
+                </div>
+                <table class="table table-striped">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th>#</th>
+                      <th>To</th>
+                      <th>purpose</th>
+                      <th>Time</th>
+                      <th>Date</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                   {% for i in gatepasss %}
+                <tr>
+                  <td>{{i.id}}</td>
+                  <td>{{i.from_date}}</td>
+                  <td>{{i.to_date}} </td>
+                  <td>{{i.purpose}}</td>
+                  <td>
+               {% endfor %}   
+                        </tr>
+                    <!--<tr>
+                      <td>1</td>
+                      <td>Tada</td>
+                      <td>Saloon</td>
+                      <td> 4:30 pm</td>
+                      <td>May 10 2018</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>GFC</td>
+                      <td>birthday party</td>
+                      <td>5:00 pm</td>
+                      <td>May 11 2018</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Chennai</td>
+                      <td>shopping</td>
+                      <td>10:00 am</td>
+                      <td>May 13 2018</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Sullurpet</td>
+                      <td>Hospital</td>
+                      <td>11:00 am</td>
+                      <td>May 15 2018</td>
+                      </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>NewCity</td>
+                      <td>shopping</td>
+                      <td>3:00 pm</td>
+                      <td>May 17 2018</td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>Sricity Hospital</td>
+                      <td>Hospital</td>
+                      <td>9:00 am</td>
+                      <td>May 20 2018</td>
+                    </tr>-->
+                  </tbody>
+                </table>
+    
+                <!-- PAGINATION -->                        
+              </div>
+            </div>
+            </section>
+              </form>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+  crossorigin="anonymous"></script>
+<script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+
+<script>
+        $(document).ready(function(){
+          $('.dropdown-submenu a.test').on("click", function(e){
+            $(this).next('ul').toggle();
+            e.stopPropagation();
+            e.preventDefault();
+          });
+        });
+        </script>
+        
+</body>
+</html>
+
+
+
